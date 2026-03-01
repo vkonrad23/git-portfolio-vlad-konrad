@@ -1,6 +1,10 @@
 # Maven build output
 target/
 
+# Gradle build output
+build/
+.gradle/
+
 # Compiled class files
 *.class
 
