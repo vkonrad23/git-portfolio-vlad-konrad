@@ -13,7 +13,7 @@ public class TodoService {
 
     public TodoItem addTodo(String title) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title must not be blank.");
+            throw new IllegalArgumentException("Todo title cannot be blank or null.");
         }
         return repository.create(title);
     }
