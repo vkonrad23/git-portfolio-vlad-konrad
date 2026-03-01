@@ -1,0 +1,54 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.vladkonrad:json-validator >--------------------
+[INFO] Building json-validator 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ json-validator ---
+[INFO] Deleting c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ json-validator ---
+[INFO] skip non existing resourceDirectory c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ json-validator ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 6 source files with javac [debug release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ json-validator ---
+[INFO] skip non existing resourceDirectory c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ json-validator ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.3.0:test (default-test) @ json-validator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.vladkonrad.InMemoryTodoRepositoryTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s -- in com.vladkonrad.InMemoryTodoRepositoryTest
+[INFO] Running com.vladkonrad.TodoItemTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.vladkonrad.TodoItemTest
+[INFO] Running com.vladkonrad.TodoServiceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in com.vladkonrad.TodoServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ json-validator ---
+[INFO] Building jar: c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\target\json-validator-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:3.1.2:install (default-install) @ json-validator ---
+[INFO] Installing c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\pom.xml to C:\Users\vladk\.m2\repository\com\vladkonrad\json-validator\1.0-SNAPSHOT\json-validator-1.0-SNAPSHOT.pom
+[INFO] Installing c:\Users\vladk\git-portfolio-vlad-konrad\json-validator\target\json-validator-1.0-SNAPSHOT.jar to C:\Users\vladk\.m2\repository\com\vladkonrad\json-validator\1.0-SNAPSHOT\json-validator-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.036 s
+[INFO] Finished at: 2026-03-01T19:09:08+02:00
+[INFO] ------------------------------------------------------------------------
