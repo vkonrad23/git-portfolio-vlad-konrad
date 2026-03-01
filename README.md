@@ -17,6 +17,11 @@ delete, and list tasks by status.
 - Apache Commons Lang
 - JUnit 5
 
+## Why Maven
+
+Maven was chosen for predictable lifecycle phases (`clean`, `test`, `install`), simple dependency
+management in one `pom.xml`, and straightforward reproducible command-line builds.
+
 ## Build And Run
 
 Build and package:
@@ -47,4 +52,14 @@ mvn exec:java
 
 ## Conflict Resolution Notes
 
-This section documents an intentional merge conflict resolved in `README.md`.
+- Conflicted file: `README.md`
+- Scenario: both `main` and `feature/conflict-demo` changed the same project-summary line.
+- Resolution: combined both edits into one final sentence:
+  `Java 17 command-line to-do validator application with Maven build automation.`
+
+## Evidence Files
+
+Assignment artifacts are stored in `screenshots/`:
+
+- `git-history.png`, `build-success.png`, `tests-passing.png`
+- command logs: `git-history.txt`, `build-success.txt`, `tests-passing.txt`
