@@ -1,6 +1,6 @@
 # Git & Build Tools Portfolio: JSON Validator To-Do Utility
 
-This repository contains a Java 17 command-line to-do application with Maven automation.
+This repository contains a Java 17 command-line to-do validator application with Maven build automation.
 It demonstrates practical Git workflows (feature branches, merge commits, conflict resolution)
 and a maintainable Maven project setup.
 
@@ -44,3 +44,7 @@ mvn exec:java
 - Merge commits in `main`
 - Intentional merge conflict and manual resolution
 - Clean, incremental commit history
+
+## Conflict Resolution Notes
+
+This section documents an intentional merge conflict resolved in `README.md`.
