@@ -32,13 +32,17 @@ public class Main {
                 boolean ok = service.deleteTodo(id);
                 System.out.println(ok ? "Deleted." : "ID not found.");
 
-            } else if (line.equals("list")) {
+            } else if (line.equals("list") || line.equals("ls")) {
                 List<TodoItem> items = service.listAll();
                 if (items.isEmpty()) {
                     System.out.println("No to-dos yet.");
                 } else {
                     items.forEach(System.out::println);
                 }
+
+            } else if (line.equals("clear done")) {
+                int removed = service.clearCompleted();
+                System.out.println("Removed completed tasks: " + removed);
 
             } else if (line.equals("list pending")) {
                 List<TodoItem> items = service.listByStatus(TodoStatus.PENDING);
@@ -76,9 +80,10 @@ public class Main {
         System.out.println("  add <title>    - Add a new to-do");
         System.out.println("  done <id>      - Mark a to-do as completed");
         System.out.println("  delete <id>    - Delete a to-do");
-        System.out.println("  list           - List all to-dos");
+        System.out.println("  list | ls      - List all to-dos");
         System.out.println("  list pending   - List only pending to-dos");
         System.out.println("  list done      - List only completed to-dos");
+        System.out.println("  clear done     - Remove all completed to-dos");
         System.out.println("  help           - Show this help");
         System.out.println("  exit           - Quit the app");
     }
