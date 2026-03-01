@@ -63,6 +63,16 @@
                 <version>3.3.0</version>
             </plugin>
 
+            <!-- Exec plugin to run the app -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.3</version>
+                <configuration>
+                    <mainClass>com.vladkonrad.Main</mainClass>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
