@@ -79,4 +79,18 @@ class TodoServiceTest {
         assertEquals(TodoStatus.PENDING, pending.get(0).getStatus());
         assertEquals(TodoStatus.COMPLETED, completed.get(0).getStatus());
     }
+
+    @Test
+    void clearCompletedRemovesOnlyCompletedItems() {
+        TodoItem first = service.addTodo("Task one");
+        TodoItem second = service.addTodo("Task two");
+        service.completeTodo(second.getId());
+
+        int removed = service.clearCompleted();
+
+        assertEquals(1, removed);
+        List<TodoItem> remaining = service.listAll();
+        assertEquals(1, remaining.size());
+        assertEquals(first.getId(), remaining.get(0).getId());
+    }
 }

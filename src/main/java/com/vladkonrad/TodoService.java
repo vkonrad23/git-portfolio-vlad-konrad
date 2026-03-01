@@ -32,6 +32,14 @@ public class TodoService {
         return repository.delete(id);
     }
 
+    public int clearCompleted() {
+        List<TodoItem> completed = repository.findByStatus(TodoStatus.COMPLETED);
+        for (TodoItem item : completed) {
+            repository.delete(item.getId());
+        }
+        return completed.size();
+    }
+
     public List<TodoItem> listAll() {
         return repository.findAll();
     }
