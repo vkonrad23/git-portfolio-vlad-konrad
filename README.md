@@ -1,6 +1,6 @@
 # Git & Build Tools Portfolio: JSON Validator To-Do Utility
 
-This repository contains a small Java 17 console application with Maven build automation.
+This repository contains a Java 17 command-line to-do application with Maven automation.
 It demonstrates practical Git workflows (feature branches, merge commits, conflict resolution)
 and a maintainable Maven project setup.
 
