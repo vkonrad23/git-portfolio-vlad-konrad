@@ -23,14 +23,22 @@ public class Main {
                 System.out.println("Added: " + item);
 
             } else if (line.startsWith("done ")) {
-                int id = Integer.parseInt(line.substring(5).trim());
-                boolean ok = service.completeTodo(id);
-                System.out.println(ok ? "Marked as completed." : "ID not found.");
+                Integer id = parseId(line.substring(5).trim());
+                if (id == null) {
+                    System.out.println("Invalid ID. Use a positive integer.");
+                } else {
+                    boolean ok = service.completeTodo(id);
+                    System.out.println(ok ? "Marked as completed." : "ID not found.");
+                }
 
             } else if (line.startsWith("delete ")) {
-                int id = Integer.parseInt(line.substring(7).trim());
-                boolean ok = service.deleteTodo(id);
-                System.out.println(ok ? "Deleted." : "ID not found.");
+                Integer id = parseId(line.substring(7).trim());
+                if (id == null) {
+                    System.out.println("Invalid ID. Use a positive integer.");
+                } else {
+                    boolean ok = service.deleteTodo(id);
+                    System.out.println(ok ? "Deleted." : "ID not found.");
+                }
 
             } else if (line.equals("list") || line.equals("ls")) {
                 List<TodoItem> items = service.listAll();
@@ -86,5 +94,14 @@ public class Main {
         System.out.println("  clear done     - Remove all completed to-dos");
         System.out.println("  help           - Show this help");
         System.out.println("  exit           - Quit the app");
+    }
+
+    private static Integer parseId(String raw) {
+        try {
+            int id = Integer.parseInt(raw);
+            return id > 0 ? id : null;
+        } catch (NumberFormatException ex) {
+            return null;
+        }
     }
 }
