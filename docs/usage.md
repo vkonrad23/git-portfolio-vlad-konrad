@@ -6,6 +6,13 @@
 mvn exec:java
 ```
 
+## Build Lifecycle Commands
+
+```bash
+mvn clean install
+mvn test
+```
+
 ## Available Commands
 
 | Command         | Description                   |
