@@ -35,4 +35,8 @@ public class TodoService {
     public List<TodoItem> listAll() {
         return repository.findAll();
     }
+
+    public List<TodoItem> listByStatus(TodoStatus status) {
+        return repository.findByStatus(status);
+    }
 }
