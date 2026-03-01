@@ -21,24 +21,38 @@ public class Main {
                 String title = line.substring(4).trim();
                 TodoItem item = service.addTodo(title);
                 System.out.println("Added: " + item);
+            } else if (line.equals("add")) {
+                System.out.println("Title is required. Usage: add <title>");
 
             } else if (line.startsWith("done ")) {
-                int id = Integer.parseInt(line.substring(5).trim());
-                boolean ok = service.completeTodo(id);
-                System.out.println(ok ? "Marked as completed." : "ID not found.");
+                Integer id = parseId(line.substring(5).trim());
+                if (id == null) {
+                    System.out.println("Invalid ID. Use a positive integer.");
+                } else {
+                    boolean ok = service.completeTodo(id);
+                    System.out.println(ok ? "Marked as completed." : "ID not found.");
+                }
 
             } else if (line.startsWith("delete ")) {
-                int id = Integer.parseInt(line.substring(7).trim());
-                boolean ok = service.deleteTodo(id);
-                System.out.println(ok ? "Deleted." : "ID not found.");
+                Integer id = parseId(line.substring(7).trim());
+                if (id == null) {
+                    System.out.println("Invalid ID. Use a positive integer.");
+                } else {
+                    boolean ok = service.deleteTodo(id);
+                    System.out.println(ok ? "Deleted." : "ID not found.");
+                }
 
-            } else if (line.equals("list")) {
+            } else if (line.equals("list") || line.equals("ls")) {
                 List<TodoItem> items = service.listAll();
                 if (items.isEmpty()) {
                     System.out.println("No to-dos yet.");
                 } else {
                     items.forEach(System.out::println);
                 }
+
+            } else if (line.equals("clear done")) {
+                int removed = service.clearCompleted();
+                System.out.println("Removed completed tasks: " + removed);
 
             } else if (line.equals("list pending")) {
                 List<TodoItem> items = service.listByStatus(TodoStatus.PENDING);
@@ -76,10 +90,20 @@ public class Main {
         System.out.println("  add <title>    - Add a new to-do");
         System.out.println("  done <id>      - Mark a to-do as completed");
         System.out.println("  delete <id>    - Delete a to-do");
-        System.out.println("  list           - List all to-dos");
+        System.out.println("  list | ls      - List all to-dos");
         System.out.println("  list pending   - List only pending to-dos");
         System.out.println("  list done      - List only completed to-dos");
+        System.out.println("  clear done     - Remove all completed to-dos");
         System.out.println("  help           - Show this help");
         System.out.println("  exit           - Quit the app");
+    }
+
+    private static Integer parseId(String raw) {
+        try {
+            int id = Integer.parseInt(raw);
+            return id > 0 ? id : null;
+        } catch (NumberFormatException ex) {
+            return null;
+        }
     }
 }
