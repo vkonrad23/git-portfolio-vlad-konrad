@@ -21,6 +21,8 @@ public class Main {
                 String title = line.substring(4).trim();
                 TodoItem item = service.addTodo(title);
                 System.out.println("Added: " + item);
+            } else if (line.equals("add")) {
+                System.out.println("Title is required. Usage: add <title>");
 
             } else if (line.startsWith("done ")) {
                 Integer id = parseId(line.substring(5).trim());
