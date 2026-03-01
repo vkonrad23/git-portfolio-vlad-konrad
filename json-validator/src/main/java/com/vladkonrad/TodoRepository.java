@@ -12,4 +12,6 @@ public interface TodoRepository {
     List<TodoItem> findAll();
 
     boolean delete(int id);
+
+    List<TodoItem> findByStatus(TodoStatus status);
 }

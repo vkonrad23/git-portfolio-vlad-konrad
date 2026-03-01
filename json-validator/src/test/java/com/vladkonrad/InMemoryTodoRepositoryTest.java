@@ -76,4 +76,20 @@ class InMemoryTodoRepositoryTest {
         assertTrue(found.isPresent());
         assertEquals("Updated", found.get().getTitle());
     }
+
+    @Test
+    void findByStatusReturnsOnlyMatchingItems() {
+        TodoItem pending = repository.create("Pending task");
+        TodoItem completed = repository.create("Done task");
+        completed.setStatus(TodoStatus.COMPLETED);
+        repository.save(completed);
+
+        List<TodoItem> pendingList = repository.findByStatus(TodoStatus.PENDING);
+        List<TodoItem> completedList = repository.findByStatus(TodoStatus.COMPLETED);
+
+        assertEquals(1, pendingList.size());
+        assertEquals(pending.getId(), pendingList.get(0).getId());
+        assertEquals(1, completedList.size());
+        assertEquals(completed.getId(), completedList.get(0).getId());
+    }
 }

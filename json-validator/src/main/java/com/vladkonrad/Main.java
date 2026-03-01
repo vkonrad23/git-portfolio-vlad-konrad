@@ -40,6 +40,22 @@ public class Main {
                     items.forEach(System.out::println);
                 }
 
+            } else if (line.equals("list pending")) {
+                List<TodoItem> items = service.listByStatus(TodoStatus.PENDING);
+                if (items.isEmpty()) {
+                    System.out.println("No pending to-dos.");
+                } else {
+                    items.forEach(System.out::println);
+                }
+
+            } else if (line.equals("list done")) {
+                List<TodoItem> items = service.listByStatus(TodoStatus.COMPLETED);
+                if (items.isEmpty()) {
+                    System.out.println("No completed to-dos.");
+                } else {
+                    items.forEach(System.out::println);
+                }
+
             } else if (line.equals("help")) {
                 printHelp();
 
@@ -57,10 +73,13 @@ public class Main {
 
     private static void printHelp() {
         System.out.println("Commands:");
-        System.out.println("  add <title>   - Add a new to-do");
-        System.out.println("  done <id>     - Mark a to-do as completed");
-        System.out.println("  delete <id>   - Delete a to-do");
-        System.out.println("  list          - List all to-dos");
-        System.out.println("  exit          - Quit the app");
+        System.out.println("  add <title>    - Add a new to-do");
+        System.out.println("  done <id>      - Mark a to-do as completed");
+        System.out.println("  delete <id>    - Delete a to-do");
+        System.out.println("  list           - List all to-dos");
+        System.out.println("  list pending   - List only pending to-dos");
+        System.out.println("  list done      - List only completed to-dos");
+        System.out.println("  help           - Show this help");
+        System.out.println("  exit           - Quit the app");
     }
 }

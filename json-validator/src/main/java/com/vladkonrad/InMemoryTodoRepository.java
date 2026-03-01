@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class InMemoryTodoRepository implements TodoRepository {
 
@@ -36,5 +37,12 @@ public class InMemoryTodoRepository implements TodoRepository {
     @Override
     public boolean delete(int id) {
         return store.remove(id) != null;
+    }
+
+    @Override
+    public List<TodoItem> findByStatus(TodoStatus status) {
+        return store.values().stream()
+                .filter(item -> item.getStatus() == status)
+                .collect(Collectors.toList());
     }
 }
