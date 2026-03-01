@@ -13,9 +13,9 @@ public class TodoService {
 
     public TodoItem addTodo(String title) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title is required and must not be empty.");
+            throw new IllegalArgumentException("Title is required and must not be blank or null.");
         }
-        return repository.create(title);
+        return repository.create(title.strip());
     }
 
     public boolean completeTodo(int id) {
