@@ -15,7 +15,7 @@ public class TodoService {
         if (title == null || title.isBlank()) {
             throw new IllegalArgumentException("Todo title cannot be blank or null.");
         }
-        return repository.create(title);
+        return repository.create(title.strip());
     }
 
     public boolean completeTodo(int id) {
