@@ -64,4 +64,19 @@ class TodoServiceTest {
 
         assertEquals(3, service.listAll().size());
     }
+
+    @Test
+    void listByStatusFiltersByGivenStatus() {
+        service.addTodo("Pending task");
+        TodoItem done = service.addTodo("Completed task");
+        service.completeTodo(done.getId());
+
+        List<TodoItem> pending = service.listByStatus(TodoStatus.PENDING);
+        List<TodoItem> completed = service.listByStatus(TodoStatus.COMPLETED);
+
+        assertEquals(1, pending.size());
+        assertEquals(1, completed.size());
+        assertEquals(TodoStatus.PENDING, pending.get(0).getStatus());
+        assertEquals(TodoStatus.COMPLETED, completed.get(0).getStatus());
+    }
 }
