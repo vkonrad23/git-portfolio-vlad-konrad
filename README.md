@@ -44,3 +44,7 @@ mvn exec:java
 - Merge commits in `main`
 - Intentional merge conflict and manual resolution
 - Clean, incremental commit history
+
+## Conflict Resolution Notes
+
+This section documents an intentional merge conflict resolved in `README.md`.
